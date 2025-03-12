@@ -12,14 +12,32 @@ body{
 
 .navbar{
     height: 60px;
-    background-color: #0f1111;  
+    /* background-color: #0f1111;   */
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    background: linear-gradient(45deg, #131921, #232f3e);
 
 }
 /* Div tk hi dikhayi deta h jb hum usse kuch height dete h */
+
+.floating-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #febd69;
+    color: black;
+    padding: 10px 15px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.floating-btn:hover {
+    transform: scale(1.1);
+}
 
 .nav-logo{
     height: 50px;
@@ -68,8 +86,14 @@ body{
     border-radius: 4px;
     background-color: #f3f3f3;
     justify-content: space-evenly;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
 
 }
+
+
+
 
 .nav-search:hover{
     border: 2px solid orange;
@@ -214,14 +238,17 @@ span{
     animation: all;
     animation-timing-function: linear;
     animation-duration: 1s;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
   
     
 
     
-}
 
 .box:hover {
     transform:scale3d(1.04,1.04,1.04);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
 }
 
 .book:hover{
@@ -391,30 +418,139 @@ ul a{
 
 }
 
-@media(max-width:550px){
-    body  {
-        flex-wrap: wrap;
+@media (max-width: 550px) {
+    .navbar {
+        flex-wrap: nowrap;
+        overflow-x: auto; /* Enable horizontal scrolling */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling for mobile */
+        white-space: nowrap; /* Prevent wrapping */
+        position: fixed; /* Stick to top */
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: #131921;
+        z-index: 1000;
     }
 
-     .shop-section{
-        flex-wrap: wrap;
-
+    /* Hide unnecessary items and adjust font sizes */
+    .nav-search {
+        width: 80%;
     }
-    .box{
-        flex-wrap: wrap;
-        justify-content: center;
+
+    .search-input {
+        font-size: 0.9rem;
+    }
+
+    /* Scrollable Panel Menu */
+    .panel {
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .panel-opt {
+        font-size: 0.75rem;
+        padding: 8px 12px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+    }
+    .hero-section {
+        height: 200px;
+        background-size: cover;
+    }
+
+    .hero-message {
+        width: 90%;
+        font-size: 0.75rem;
+        overflow-x: scroll;
+    }
+
+    .shop-section {
+        flex-direction: column;
         align-items: center;
-
     }
 
-    .item{
-        flex-wrap: wrap;
-        justify-content: center;
+    .box {
+        width: 90%; /* Single column for mobile */
+    }
+
+    .foot-panel2 {
+        flex-direction: column;
         align-items: center;
+        height: auto;
+        padding: 20px;
+    }
+
+    ul {
+        text-align: center;
+        padding: 0;
+    }
+
+    .foot-panel3 {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .foot-panel4 {
+        font-size: 0.6rem;
+        padding: 10px;
     }
 }
 
+@media (max-width: 550px) {
+    .nav-right {
+        display: none; /* Hide extra links */
+    }
 
+    /* Hamburger Menu */
+    .hamburger {
+        display: block;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: white;
+        margin-right: 15px;
+    }
 
+    .mobile-menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background: #232f3e;
+        width: 200px;
+        border-radius: 5px;
+        padding: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .mobile-menu a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+        border-bottom: 1px solid #444;
+    }
+
+    .mobile-menu a:last-child {
+        border-bottom: none;
+    }
+
+    .mobile-menu.show {
+        display: block;
+    }
+}
+
+a, button {
+    transition: all 0.3s ease-in-out;
+}
+
+a:hover, button:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
 
 
